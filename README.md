@@ -1,2 +1,2 @@
-# tamino
-## Model binding with a dynamic twist
+# paminajs
+## JavaScript model binding
