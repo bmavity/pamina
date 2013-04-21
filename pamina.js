@@ -12,10 +12,12 @@ function Pamina(req, handler) {
 	}
 
 	var me = this
+		, args = sarastro(handler)
+	args.pop()
 	me._req = req
 
 	function execute() {
-		var vals = handler.args.map(me.resolveValue, me)
+		var vals = args.map(me.resolveValue, me)
 
 		if(vals.some(hasNoValue)) {
 			me.emit('invalid')
