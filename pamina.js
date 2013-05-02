@@ -18,7 +18,7 @@ function Pamina(req, handler) {
 
 	function execute() {
 		var vals = args.map(me.resolveValue, me)
-
+		
 		if(vals.some(hasNoValue)) {
 			me.emit('invalid')
 		} else {
@@ -33,8 +33,8 @@ util.inherits(Pamina, events.EventEmitter)
 
 Pamina.prototype.resolveValue = function(arg) {
 	var val
-	if(this._req.params) {
-		val = this._req.params[arg]
+	if(this._req.body) {
+		val = this._req.body[arg]
 	}
 	if(hasNoValue(val)) {
 		val = this._req.query[arg]
